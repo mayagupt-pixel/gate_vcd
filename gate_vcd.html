@@ -20,8 +20,10 @@
 <div class="a"><b>Gate level VCD</b></div>
 
 <xmp>
-  Step 1:  Please create a *.v file which has both Verilog and testbench (there are few modifications compared to our last testbench)
+  Step 1:  Please create a *.v file which has both Verilog and testbench (there are few modifications compared to our last testbench):
+  -------
 
+##############################################################################
 module design (a,ck,d,z,y);
 input a, ck, d ;
 output z,y;
@@ -49,17 +51,18 @@ end
 always #5 ck=~ck;
 
 endmodule
-
-Step 2: Create a new input.tcl which contains below information
-
+#############################################################################
+Step 2: Create a new input.tcl which contains below information:
+-------
 database -open waves -into waves.vcd -default -vcd
 probe -create -vcd -depth all -all -database waves
 run
 exit
 
-Step 3:
 
-xrun tetsbenc.v -access +rwc -v lib.v -clean -input input.tcl
+Step 3:
+--------
+/grid/avs/install/xcelium/2109/latest//tools/bin/xrun tetsbenc.v -access +rwc -v lib.v -clean -input input.tcl
 </xmp>
 
 
